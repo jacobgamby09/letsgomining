@@ -13,7 +13,7 @@ import {
 import type { Intent } from "../sim/intents";
 import { getState, persist } from "../state/gameState";
 import { TILES } from "./BootScene";
-import { INTENT_LABELS } from "./runEvents";
+import { INTENT_DESCRIPTIONS, INTENT_LABELS } from "./runEvents";
 
 const SKY_COLOR = 0x5ec4ea;
 const GRASS_COLOR = 0x4fae3c;
@@ -51,6 +51,7 @@ export class CampScene extends Phaser.Scene {
   private walletTexts!: Record<Resource, Phaser.GameObjects.Text>;
   private cards!: Record<UpgradeId, CardRefs>;
   private intentButtons!: Map<Intent, { bg: Phaser.GameObjects.Rectangle; label: Phaser.GameObjects.Text }>;
+  private intentDescription!: Phaser.GameObjects.Text;
 
   constructor() {
     super("Camp");
@@ -141,6 +142,8 @@ export class CampScene extends Phaser.Scene {
       });
       this.intentButtons.set(intent, { bg, label });
     });
+    this.add.rectangle(480, 318, 290, 20, PANEL_COLOR, 0.85);
+    this.intentDescription = this.add.text(480, 318, "", TEXT(12)).setOrigin(0.5);
   }
 
   private buildStartButton(): void {
@@ -213,5 +216,6 @@ export class CampScene extends Phaser.Scene {
       button.bg.setStrokeStyle(selected ? 2 : 1, selected ? AMBER : 0x353b49);
       button.label.setColor(selected ? AMBER_TEXT : MUTED_TEXT);
     }
+    this.intentDescription.setText(INTENT_DESCRIPTIONS[state.intent]);
   }
 }

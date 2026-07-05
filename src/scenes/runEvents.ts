@@ -8,6 +8,12 @@ export const INTENT_LABELS: Record<Intent, string> = {
   harvest: "Harvest",
 };
 
+export const INTENT_DESCRIPTIONS: Record<Intent, string> = {
+  balanced: "Steady mix of loot and progress",
+  pushDepth: "Dig deep, ignore most loot",
+  harvest: "Hunt the richest ore nearby",
+};
+
 /**
  * Game-level events the MineScene emits while playing back a run, consumed
  * by the HudScene. Emitted on `game.events` so scene restarts cannot leave

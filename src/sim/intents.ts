@@ -16,12 +16,18 @@ export interface IntentWeights {
   depth: number;
   /** Penalty per point of stamina the target costs to reach and break. */
   cost: number;
+  /** Reward for value hidden in the target's solid neighbours ("prospecting").
+   *  This is what lets harvest dig toward buried ore instead of only
+   *  detouring to ore that is already exposed on the frontier. */
+  prospect: number;
 }
 
 export const INTENT_WEIGHTS: Record<Intent, IntentWeights> = {
-  balanced: { value: 1.0, depth: 0.25, cost: 0.12 },
-  pushDepth: { value: 0.3, depth: 1.0, cost: 0.08 },
-  harvest: { value: 1.6, depth: 0.05, cost: 0.15 },
+  balanced: { value: 1.0, depth: 0.25, cost: 0.12, prospect: 0 },
+  pushDepth: { value: 0.15, depth: 1.0, cost: 0.07, prospect: 0 },
+  // Harvest needs a modest depth pull: the top two rows hold no ore, so a
+  // pure value/cost tradeoff strip-mines surface stone and never finds copper.
+  harvest: { value: 2.4, depth: 0.15, cost: 0.12, prospect: 0.8 },
 };
 
 export interface Plan {
@@ -99,6 +105,18 @@ export function selectPlan(input: PlanInput): Plan | null {
     }
   }
 
+  const hiddenNeighbourValue = (target: Cell): number => {
+    let total = 0;
+    for (const { dx, dy } of NEIGHBORS) {
+      const nx = target.x + dx;
+      const ny = target.y + dy;
+      if (nx < 0 || nx >= grid.width || ny < 0 || ny >= grid.height) continue;
+      if (isCleared(nx, ny)) continue;
+      total += MATERIALS[tileAt(grid, nx, ny)!.material].value;
+    }
+    return total;
+  };
+
   let best: Candidate | null = null;
   let bestScore = -Infinity;
   for (const candidate of candidates.values()) {
@@ -108,7 +126,8 @@ export function selectPlan(input: PlanInput): Plan | null {
       candidate.dist * WORKER_BASE.moveStamina + swings * WORKER_BASE.swingStamina;
     const score =
       weights.value * MATERIALS[tile.material].value +
-      weights.depth * (candidate.target.y + 1) -
+      weights.depth * (candidate.target.y + 1) +
+      (weights.prospect > 0 ? weights.prospect * hiddenNeighbourValue(candidate.target) : 0) -
       weights.cost * staminaCost;
     if (
       score > bestScore ||
