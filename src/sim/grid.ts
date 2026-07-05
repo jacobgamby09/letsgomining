@@ -2,6 +2,11 @@ import { mulberry32, randInt, type Rng } from "./rng";
 
 export type Material = "dirt" | "stone" | "copper" | "hardstone" | "iron";
 
+export interface Cell {
+  x: number;
+  y: number;
+}
+
 export interface Tile {
   material: Material;
   /** Which clean art variant (1-3) this tile renders with. */
