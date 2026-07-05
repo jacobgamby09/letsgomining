@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import type { Resource } from "../sim/balance";
 import {
+  INTENT_LABELS,
   RUN_EVENTS,
   type EndedPayload,
   type LootPayload,
@@ -78,7 +79,7 @@ export class HudScene extends Phaser.Scene {
       .text(0, -8, "", { ...TEXT_STYLE, fontSize: "15px", align: "center", lineSpacing: 6 })
       .setOrigin(0.5);
     const hint = this.add
-      .text(0, 54, "Press R or click to start the next run", {
+      .text(0, 54, "Press R or click to return to camp", {
         ...TEXT_STYLE,
         fontSize: "13px",
         color: "#8a8f9c",
@@ -95,8 +96,7 @@ export class HudScene extends Phaser.Scene {
     for (const resource of RESOURCES) this.countTexts[resource].setText("0");
     this.staminaFill.setScale(1, 1);
     this.panel.setVisible(false);
-    const intent = payload.intent.charAt(0).toUpperCase() + payload.intent.slice(1);
-    this.runLabel.setText(`${intent} · Run ${payload.run}`);
+    this.runLabel.setText(`${INTENT_LABELS[payload.intent]} · Run ${payload.run}`);
   }
 
   private onLoot(payload: LootPayload): void {

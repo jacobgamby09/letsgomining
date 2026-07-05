@@ -1,5 +1,12 @@
 import type { Resource } from "../sim/balance";
+import type { Intent } from "../sim/intents";
 import type { RunEndReason, RunTotals } from "../sim/run";
+
+export const INTENT_LABELS: Record<Intent, string> = {
+  balanced: "Balanced",
+  pushDepth: "Push Depth",
+  harvest: "Harvest",
+};
 
 /**
  * Game-level events the MineScene emits while playing back a run, consumed
@@ -14,7 +21,7 @@ export const RUN_EVENTS = {
 } as const;
 
 export interface RunStartedPayload {
-  intent: string;
+  intent: Intent;
   run: number;
 }
 

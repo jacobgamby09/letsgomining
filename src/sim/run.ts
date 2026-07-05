@@ -54,6 +54,9 @@ export interface RunConfig {
   /** Upgrade overrides; defaults come from WORKER_BASE. */
   stamina?: number;
   power?: number;
+  /** Elevator shaft: rows 0..startDepth-1 of the start column begin cleared
+   *  (no loot) and the worker starts at the bottom of the shaft. */
+  startDepth?: number;
 }
 
 type Action =
@@ -90,7 +93,12 @@ export class RunSim {
     this.intent = config.intent;
     this.stamina = config.stamina ?? WORKER_BASE.stamina;
     this.power = config.power ?? WORKER_BASE.power;
-    this.workerPos = { x: Math.floor(config.width / 2), y: -1 };
+    const startX = Math.floor(config.width / 2);
+    const startDepth = Math.min(config.startDepth ?? 0, config.height);
+    for (let y = 0; y < startDepth; y++) {
+      this.cleared.add(`${startX},${y}`);
+    }
+    this.workerPos = { x: startX, y: startDepth - 1 };
   }
 
   get done(): boolean {

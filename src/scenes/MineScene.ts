@@ -1,8 +1,9 @@
 import Phaser from "phaser";
-import { WORKER_BASE } from "../sim/balance";
+import { addLoot, effectsFor, type RunEffects } from "../sim/economy";
 import type { Cell, Material, MineGrid } from "../sim/grid";
 import { tileAt } from "../sim/grid";
 import { runToEnd, RunSim, type RunEvent } from "../sim/run";
+import { getState, persist } from "../state/gameState";
 import { TILES } from "./BootScene";
 import { RUN_EVENTS, type EndedPayload, type LootPayload } from "./runEvents";
 
@@ -30,8 +31,8 @@ interface Instruction {
  * the resulting event timeline.
  */
 export class MineScene extends Phaser.Scene {
-  private seed = 1;
   private grid!: MineGrid;
+  private effects!: RunEffects;
   private worker!: Phaser.GameObjects.Sprite;
   private tiles = new Map<string, Phaser.GameObjects.Image>();
   private grass = new Map<number, Phaser.GameObjects.Rectangle[]>();
@@ -45,8 +46,7 @@ export class MineScene extends Phaser.Scene {
     super("Mine");
   }
 
-  init(data: { seed?: number }): void {
-    this.seed = data.seed ?? 1;
+  init(): void {
     this.tiles = new Map();
     this.grass = new Map();
     this.instructions = [];
@@ -57,11 +57,16 @@ export class MineScene extends Phaser.Scene {
   }
 
   create(): void {
+    const state = getState();
+    this.effects = effectsFor(state.levels);
     const sim = new RunSim({
       width: GRID_WIDTH,
       height: GRID_HEIGHT,
-      seed: this.seed,
-      intent: "balanced",
+      seed: state.runNumber,
+      intent: state.intent,
+      power: this.effects.power,
+      stamina: this.effects.stamina,
+      startDepth: this.effects.startDepth,
     });
     this.grid = sim.grid;
     this.instructions = runToEnd(sim).map((event) => ({
@@ -73,7 +78,7 @@ export class MineScene extends Phaser.Scene {
 
     const startX = Math.floor(GRID_WIDTH / 2);
     this.worker = this.add
-      .sprite(startX * TILE + TILE / 2, 0, "miner_idle_01")
+      .sprite(startX * TILE + TILE / 2, this.effects.startDepth * TILE, "miner_idle_01")
       .setOrigin(0.5, 1)
       .setDepth(DEPTHS.worker);
     this.worker.play("miner-idle");
@@ -89,10 +94,10 @@ export class MineScene extends Phaser.Scene {
     camera.startFollow(this.worker, true, 0.12, 0.12);
 
     if (!this.scene.isActive("Hud")) this.scene.launch("Hud");
-    this.game.events.emit(RUN_EVENTS.started, { intent: "balanced", run: this.seed });
+    this.game.events.emit(RUN_EVENTS.started, { intent: state.intent, run: state.runNumber });
 
-    this.input.keyboard?.on("keydown-R", () => this.restartIfFinished());
-    this.input.on("pointerdown", () => this.restartIfFinished());
+    this.input.keyboard?.on("keydown-R", () => this.returnToCampIfFinished());
+    this.input.on("pointerdown", () => this.returnToCampIfFinished());
   }
 
   update(_time: number, delta: number): void {
@@ -139,6 +144,20 @@ export class MineScene extends Phaser.Scene {
       .image(startX * TILE + TILE / 2, 0, "mine_entrance_basic")
       .setOrigin(0.5, 1)
       .setDepth(DEPTHS.entrance);
+
+    // Elevator shaft: pre-cleared column matching the sim's start depth.
+    if (this.effects.startDepth > 0) {
+      this.add
+        .image(startX * TILE + TILE / 2, 0, "elevator_frame_basic")
+        .setOrigin(0.5, 1)
+        .setDepth(DEPTHS.entrance + 0.5);
+      for (let y = 0; y < this.effects.startDepth; y++) {
+        const wallVariant = ((startX * 7 + y * 13) % 4) + 1;
+        this.tileImage({ x: startX, y })?.setFrame(`back_wall_0${wallVariant}`);
+      }
+      for (const rect of this.grass.get(startX) ?? []) rect.destroy();
+      this.grass.delete(startX);
+    }
   }
 
   private fire(event: RunEvent): void {
@@ -164,6 +183,11 @@ export class MineScene extends Phaser.Scene {
         this.marker.setVisible(false);
         this.worker.play("miner-idle", true);
         this.finished = true;
+        // Bank the loot immediately so a reload cannot lose a finished run.
+        const state = getState();
+        state.wallet = addLoot(state.wallet, event.totals.resources);
+        state.runNumber += 1;
+        persist();
         const payload: EndedPayload = { reason: event.reason, totals: event.totals };
         this.time.delayedCall(700, () => this.game.events.emit(RUN_EVENTS.ended, payload));
         break;
@@ -261,7 +285,7 @@ export class MineScene extends Phaser.Scene {
   }
 
   private emitStamina(staminaLeft: number): void {
-    this.game.events.emit(RUN_EVENTS.stamina, { fraction: staminaLeft / WORKER_BASE.stamina });
+    this.game.events.emit(RUN_EVENTS.stamina, { fraction: staminaLeft / this.effects.stamina });
   }
 
   private materialAt(cell: Cell): Material {
@@ -272,7 +296,9 @@ export class MineScene extends Phaser.Scene {
     return this.tiles.get(`${cell.x},${cell.y}`);
   }
 
-  private restartIfFinished(): void {
-    if (this.finished) this.scene.restart({ seed: this.seed + 1 });
+  private returnToCampIfFinished(): void {
+    if (!this.finished) return;
+    this.scene.stop("Hud");
+    this.scene.start("Camp");
   }
 }

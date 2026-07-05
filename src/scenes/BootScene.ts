@@ -56,6 +56,6 @@ export class BootScene extends Phaser.Scene {
       hideOnComplete: true,
     });
 
-    this.scene.start("Mine", { seed: 1 });
+    this.scene.start("Camp");
   }
 }
