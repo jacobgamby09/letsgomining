@@ -8,7 +8,14 @@ export type DamageStage = "cracked_1" | "cracked_2" | "near_break";
 export type RunEndReason = "exhausted" | "cleared";
 
 export type RunEvent =
-  | { type: "walked"; atMs: number; durationMs: number; from: Cell; to: Cell }
+  | {
+      type: "walked";
+      atMs: number;
+      durationMs: number;
+      from: Cell;
+      to: Cell;
+      staminaLeft: number;
+    }
   | {
       type: "tileDamaged";
       atMs: number;
@@ -17,6 +24,7 @@ export type RunEvent =
       target: Cell;
       stage: DamageStage;
       hpLeft: number;
+      staminaLeft: number;
     }
   | {
       type: "tileBroken";
@@ -26,6 +34,7 @@ export type RunEvent =
       target: Cell;
       material: Material;
       yields: Resource | null;
+      staminaLeft: number;
     }
   | { type: "runEnded"; atMs: number; reason: RunEndReason; totals: RunTotals };
 
@@ -171,6 +180,7 @@ export class RunSim {
         durationMs: WORKER_BASE.walkMs,
         from,
         to: { ...action.to },
+        staminaLeft: this.stamina,
       });
       return;
     }
@@ -196,6 +206,7 @@ export class RunSim {
         target: { ...target },
         material,
         yields,
+        staminaLeft: this.stamina,
       });
     } else {
       this.damage.set(key, hpLeft);
@@ -207,6 +218,7 @@ export class RunSim {
         target: { ...target },
         stage: damageStage(hpLeft, MATERIALS[material].hp),
         hpLeft,
+        staminaLeft: this.stamina,
       });
     }
   }
