@@ -1,0 +1,827 @@
+{
+  "name": "core_16_starting_assets",
+  "version": 1,
+  "tileSize": 16,
+  "generatedBy": "scripts/generate_core16_assets.py",
+  "artDirection": {
+    "summary": "Native 16x16 readable pixel-art mining assets with shared dark seams, upper-left highlights, lower-right weight, and per-material damage states.",
+    "sourceDocs": [
+      "docs/GDD_2.0.md",
+      "docs/visual.md"
+    ]
+  },
+  "records": [
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_clean_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_clean_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_clean_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_cracked_1.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "cracked_1"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_cracked_2.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "cracked_2"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/dirt/dirt_near_break.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "dirt",
+        "near_break"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_clean_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_clean_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_clean_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_cracked_1.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "cracked_1"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_cracked_2.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "cracked_2"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/stone/stone_near_break.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "stone",
+        "near_break"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_clean_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_clean_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_clean_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_cracked_1.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "cracked_1"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_cracked_2.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "cracked_2"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/copper/copper_near_break.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "copper",
+        "near_break"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_clean_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_clean_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_clean_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_cracked_1.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "cracked_1"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_cracked_2.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "cracked_2"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/hardstone/hardstone_near_break.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "hardstone",
+        "near_break"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_clean_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_clean_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_clean_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "clean"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_cracked_1.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "cracked_1"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_cracked_2.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "cracked_2"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/materials/iron/iron_near_break.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "iron",
+        "near_break"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/back_wall/back_wall_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "back-wall",
+        "cleared"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/back_wall/back_wall_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "back-wall",
+        "cleared"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/back_wall/back_wall_03.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "back-wall",
+        "cleared"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/back_wall/back_wall_04.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "tile",
+      "tags": [
+        "back-wall",
+        "cleared"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/icons/resources/resource_stone.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "icon",
+      "tags": [
+        "stone",
+        "resource"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/icons/resources/resource_copper.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "icon",
+      "tags": [
+        "copper",
+        "resource"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/icons/resources/resource_iron.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "icon",
+      "tags": [
+        "iron",
+        "resource"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/hit_flash_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "impact",
+        "flash"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/target_marker_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "target",
+        "marker"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/break_dust_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "break",
+        "dust"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/break_dust_02.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "break",
+        "dust"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/chips_dirt.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "dirt",
+        "chips"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/chips_stone.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "stone",
+        "chips"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/chips_copper.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "copper",
+        "chips"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/chips_hardstone.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "hardstone",
+        "chips"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/effects/mining/chips_iron.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "effect",
+      "tags": [
+        "iron",
+        "chips"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/structures/mine/mine_entrance_basic.png",
+      "size": [
+        64,
+        64
+      ],
+      "category": "structure",
+      "tags": [
+        "mine",
+        "entrance"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/structures/mine/elevator_frame_basic.png",
+      "size": [
+        48,
+        64
+      ],
+      "category": "structure",
+      "tags": [
+        "mine",
+        "elevator"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_idle_01.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "idle_01"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_idle_02.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "idle_02"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_walk_01.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "walk_01"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_walk_02.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "walk_02"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_walk_03.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "walk_03"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_walk_04.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "walk_04"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_mine_windup.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "mine_windup"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_mine_hit.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "mine_hit"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/characters/worker/miner_mine_recover.png",
+      "size": [
+        16,
+        24
+      ],
+      "category": "character",
+      "tags": [
+        "worker",
+        "mine_recover"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/camp/props/pickaxe_upgrade_01.png",
+      "size": [
+        16,
+        16
+      ],
+      "category": "camp",
+      "tags": [
+        "upgrade",
+        "pickaxe"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/camp/props/stamina_barrel_01.png",
+      "size": [
+        24,
+        24
+      ],
+      "category": "camp",
+      "tags": [
+        "upgrade",
+        "stamina"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/camp/props/elevator_crate_01.png",
+      "size": [
+        24,
+        24
+      ],
+      "category": "camp",
+      "tags": [
+        "upgrade",
+        "elevator"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/camp/tent/tent_basic.png",
+      "size": [
+        64,
+        48
+      ],
+      "category": "camp",
+      "tags": [
+        "tent",
+        "surface"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/camp/upgrade_board/upgrade_board_basic.png",
+      "size": [
+        48,
+        32
+      ],
+      "category": "camp",
+      "tags": [
+        "upgrade",
+        "board"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/sheets/core16_tilesheet.png",
+      "size": [
+        128,
+        80
+      ],
+      "category": "tilesheet",
+      "tags": [
+        "native",
+        "tiles"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/previews/core16_tilesheet_4x.png",
+      "size": [
+        512,
+        320
+      ],
+      "category": "preview",
+      "tags": [
+        "tilesheet",
+        "4x"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/tiles/sheets/core16_tilesheet.json",
+      "size": null,
+      "category": "tilesheet",
+      "tags": [
+        "metadata",
+        "tiles"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/previews/dense_mine_grid_native.png",
+      "size": [
+        320,
+        160
+      ],
+      "category": "preview",
+      "tags": [
+        "dense-grid",
+        "native"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/previews/dense_mine_grid_4x.png",
+      "size": [
+        1280,
+        640
+      ],
+      "category": "preview",
+      "tags": [
+        "dense-grid",
+        "4x"
+      ]
+    },
+    {
+      "path": "src/assets/core_16/previews/asset_contact_sheet.png",
+      "size": [
+        512,
+        616
+      ],
+      "category": "preview",
+      "tags": [
+        "contact-sheet"
+      ]
+    }
+  ]
+}

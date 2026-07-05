@@ -1,0 +1,244 @@
+{
+  "tileSize": 16,
+  "image": "core16_tilesheet.png",
+  "frames": [
+    {
+      "key": "dirt_clean_01",
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "dirt_clean_02",
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "dirt_clean_03",
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "dirt_cracked_1",
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "dirt_cracked_2",
+      "x": 64,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "dirt_near_break",
+      "x": 80,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_clean_01",
+      "x": 96,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_clean_02",
+      "x": 112,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_clean_03",
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_cracked_1",
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_cracked_2",
+      "x": 32,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "stone_near_break",
+      "x": 48,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_clean_01",
+      "x": 64,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_clean_02",
+      "x": 80,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_clean_03",
+      "x": 96,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_cracked_1",
+      "x": 112,
+      "y": 16,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_cracked_2",
+      "x": 0,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "copper_near_break",
+      "x": 16,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_clean_01",
+      "x": 32,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_clean_02",
+      "x": 48,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_clean_03",
+      "x": 64,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_cracked_1",
+      "x": 80,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_cracked_2",
+      "x": 96,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "hardstone_near_break",
+      "x": 112,
+      "y": 32,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_clean_01",
+      "x": 0,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_clean_02",
+      "x": 16,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_clean_03",
+      "x": 32,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_cracked_1",
+      "x": 48,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_cracked_2",
+      "x": 64,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "iron_near_break",
+      "x": 80,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "back_wall_01",
+      "x": 96,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "back_wall_02",
+      "x": 112,
+      "y": 48,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "back_wall_03",
+      "x": 0,
+      "y": 64,
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "back_wall_04",
+      "x": 16,
+      "y": 64,
+      "w": 16,
+      "h": 16
+    }
+  ]
+}
